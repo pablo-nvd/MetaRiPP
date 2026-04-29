@@ -155,11 +155,14 @@ PROJECT_DIR=data/test_1 bash scripts/04_deepripp.sh
 PROJECT_DIR=data/test_1 bash scripts/05_rippminer.sh
 ```
 
-## 🔹 3. Cross-project modules
+## 🔹 3. Cross-project modules (BiG-SCAPE and SSN)
 
-These modules operate across all projects located in: data/
+> ⚠️ **Cross-project Analysis Disclaimer:**  
+> These modules are **not part of the main workflow** and must be run manually after analyzing individual projects.  
+> They automatically include all projects found inside the `data/` directory.  
+> 🧹 **To exclude a dataset:** move its folder outside of `data/`.
 
-⚠️ All valid projects inside data/ will be included automatically.
+---
 
 ### BiG-SCAPE
 ```bash
@@ -241,15 +244,6 @@ RUN_BIGSCAPE=false
 **Outputs:**
 * `rippminer_classes.tsv`
 * SMILES files
-
----
-
-## 🔹 Cross-project modules (BiG-SCAPE and SSN)
-
-> ⚠️ **Cross-project Analysis Disclaimer:**  
-> These modules are **not part of the main workflow** and must be run manually after analyzing individual projects.  
-> They automatically include all projects found inside the `data/` directory.  
-> 🧹 **To exclude a dataset:** move its folder outside of `data/`.
 
 ---
 
