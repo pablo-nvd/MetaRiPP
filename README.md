@@ -126,11 +126,47 @@ bash workflow/run_pipeline.sh \
     --mode local \
     --input input/
 ```
+Modes
+download → download data from GeoSeeq (requires sample list)
+local → use local FASTQ files
 
-Modes:
+🔹 2. Run individual modules
+Each module must be executed within a project context using PROJECT_DIR.
 
-* `download` → GeoSeeq
-* `local` → local FASTQ
+Module 1 — Input & QC
+# Download mode (GeoSeeq sample list)
+```bash
+PROJECT_DIR=data/test_1 bash scripts/01_download_qc.sh input/example.txt
+```
+# Local mode (directory with FASTQ files)
+```bash
+PROJECT_DIR=data/test_1 bash scripts/01_local_qc.sh input/
+```
+Modules 2–5 — Core pipeline
+```bash
+PROJECT_DIR=data/test_1 bash scripts/02_coassembly.sh
+PROJECT_DIR=data/test_1 bash scripts/03_bgcs.sh
+PROJECT_DIR=data/test_1 bash scripts/04_deepripp.sh
+PROJECT_DIR=data/test_1 bash scripts/05_rippminer.sh
+```
+⚠️ Each module depends on outputs from the previous step.
+
+🔹 3. Cross-project modules
+
+These modules operate across all projects located in:
+
+data/
+SSN
+```bash
+bash scripts/07_ssn_cross_project.sh \
+    --deepripp_score 0.5 \
+    --evalue 1e-5
+```
+BiG-SCAPE
+```bash
+bash scripts/06_bigscape_cross_project.sh
+```
+⚠️ All valid projects inside data/ will be included automatically.
 
 ---
 
@@ -256,35 +292,6 @@ Example:
 ```bash
 THREADS=8
 RUN_BIGSCAPE=false
-```
-
----
-
-## 🔹 2. Run individual modules
-
-```bash
-bash scripts/02_coassembly.sh
-bash scripts/04_deepripp.sh
-```
-
-> ⚠️ Requires outputs from previous modules.
-
----
-
-## 🔹 3. Cross-project analysis
-
-**SSN:**
-
-```bash
-bash scripts/07_ssn_cross_project.sh \
-    --deepripp_score 0.5 \
-    --evalue 1e-5
-```
-
-**BiG-SCAPE:**
-
-```bash
-bash scripts/06_bigscape_cross_project.sh
 ```
 
 ---
