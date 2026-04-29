@@ -50,7 +50,7 @@ Will include:
 * Dependency versions
 * Optional Docker image
 
-> ⚠️ Databases
+## ⚠️ Databases
 
 Some modules require precomputed databases. These paths are defined in `config/config.env`.
 
