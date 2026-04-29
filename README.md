@@ -164,12 +164,12 @@ PROJECT_DIR=data/test_1 bash scripts/05_rippminer.sh
 
 ---
 
-### BiG-SCAPE
+### Module 6: Cross project BiG-SCAPE
 ```bash
 bash scripts/06_bigscape_cross_project.sh
 ```
 
-### SSN
+### Module 7: Cross project SSN
 ```bash
 bash scripts/07_ssn_cross_project.sh \
     --deepripp_score 0.5 \
