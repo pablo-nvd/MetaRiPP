@@ -1,10 +1,8 @@
 # 🧬 MetaRiPP
 
-                               
 <img width="500" height="250" alt="logo" src="https://github.com/user-attachments/assets/3ee2b4b3-8a19-4a7a-be01-9a9949651639" />
-                                                                                                                                
-        Metagenomic RiPP Discovery & Network Analysis Pipeline
 
+Metagenomic RiPP Discovery & Network Analysis Pipeline
 
 **MetaRiPP** is a modular pipeline for the detection, classification, and cross-project analysis of **ribosomally synthesized and post-translationally modified peptides (RiPPs)** from metagenomic data.
 
@@ -17,37 +15,28 @@ It integrates assembly, BGC detection, deep learning-based precursor prediction,
 The pipeline is organized into modular steps:
 
 ### 1. Data Acquisition & QC
-
-* Download from GeoSeeq OR use local FASTQ files
-* Quality control with `fastp`
-* Contaminant removal with `bowtie2` (PhiX + human)
-
 ### 2. Co-assembly & Gene Prediction
-
-* Assembly using `MEGAHIT`
-* Gene calling with `Prodigal`
-
 ### 3. BGC Detection
-
-* `antiSMASH`
-* Optional: `BiG-SCAPE` clustering
-
 ### 4. DeepRiPP Prediction
-
-* Deep learning classification of precursor peptides
-
 ### 5. RiPPMiner Annotation
+### 6. Cross-project BiG-SCAPE *(manual)*
+### 7. Cross-project SSN *(manual)*
 
-* Structural and class prediction
-* SMILES extraction
+---
 
-### 6. Cross-project BiG-SCAPE
+# 🛠️ Requirements
 
-* Global clustering of BGCs across datasets
+The following tools must be installed and available in your `$PATH`:
 
-### 7. Cross-project SSN
-
-* Builds sequence similarity networks from predicted RiPP precursors
+- `fastp`
+- `bowtie2`
+- `MEGAHIT`
+- `Prodigal`
+- `antiSMASH`
+- `BiG-SCAPE` *(optional)*
+- `BLAST+` *(for SSN)*
+- `DeepRiPP`
+- `RiPPMiner`
 
 ---
 
@@ -91,9 +80,9 @@ MetaRiPP/
 ├── bins/
 ├── config/
 ├── dbs/
-│ ├── bigscape/ # Pfam HMM profiles
-│ ├── index_h38/ # Bowtie2 human index
-│ └── index_phix/ # Bowtie2 PhiX index
+│   ├── bigscape/   # Pfam HMM profiles
+│   ├── index_h38/  # Bowtie2 human index
+│   └── index_phix/ # Bowtie2 PhiX index
 ```
 
 ---
@@ -102,8 +91,6 @@ MetaRiPP/
 
 #### Bowtie2 indices
 
-You can build indices from FASTA files:
-
 ```bash
 bowtie2-build human.fa index_h38/hg38
 bowtie2-build phix.fa index_phix/phix
@@ -111,21 +98,18 @@ bowtie2-build phix.fa index_phix/phix
 
 #### Pfam database (for BiG-SCAPE)
 
-Download Pfam HMM profiles:
+Download and decompress Pfam HMM profiles:
 
 ```bash
 wget https://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.gz
 gunzip Pfam-A.hmm.gz
+mv Pfam-A.hmm dbs/bigscape/
 ```
 
-Download Pfam HMM profiles:
-dbs/bigscape/
 ---
 
-If you generate or place databases manually, make sure to update the paths in:
-```bash
-config/config.env
-```
+If you place databases manually, update the paths in `config/config.env`:
+
 ```bash
 PHIX_INDEX="dbs/index_phix/phix"
 HG_INDEX="dbs/index_h38/hg38"
@@ -150,20 +134,15 @@ Modes:
 
 ---
 
-
 # 🧩 Modules
 
 ## 🔹 Module 1: Download / Local QC
-
-**Scripts:**
-
-* `01_download_qc.sh`
-* `01_local_qc.sh`
-
-**Function:**
-
-* Input: sample list OR local FASTQ directory
+* Download from GeoSeeq OR use local FASTQ files
+* Quality control with `fastp`
+* Contaminant removal with `bowtie2` (PhiX + human)
 * Output: cleaned paired reads
+
+**Scripts:** `01_download_qc.sh` / `01_local_qc.sh`
 
 **Key parameters:**
 
@@ -176,29 +155,22 @@ HG_INDEX=dbs/index_h38/hg38
 ---
 
 ## 🔹 Module 2: Co-assembly
+* Assembles reads across samples using `MEGAHIT`
+* Gene calling with `Prodigal`
 
 **Script:** `02_coassembly.sh`
 
-**Function:**
-
-* Merges reads across samples
-* Runs MEGAHIT + Prodigal
-
 **Output:**
-
 * Contigs
-* Predicted proteins (*.faa)
+* Predicted proteins (`*.faa`)
 
 ---
 
 ## 🔹 Module 3: BGC Detection
+* `antiSMASH`
+* Optional: `BiG-SCAPE` clustering
 
 **Script:** `03_bgcs.sh`
-
-**Tools:**
-
-* antiSMASH
-* BiG-SCAPE (optional)
 
 **Key parameter:**
 
@@ -209,49 +181,42 @@ RUN_BIGSCAPE=false
 ---
 
 ## 🔹 Module 4: DeepRiPP
+* Deep learning classification of precursor peptides
 
 **Script:** `04_deepripp.sh`
 
-**Function:**
-
-* Predicts RiPP precursor peptides
-
 **Outputs:**
-
 * `deepripp_parsed.tsv`
 * `precursor_peptides.fasta`
 
 ---
 
 ## 🔹 Module 5: RiPPMiner
+* Structural and class prediction
+* SMILES extraction
 
 **Script:** `05_rippminer.sh`
 
-**Function:**
-
-* Classifies peptides and predicts structures
-
 **Outputs:**
-
 * `rippminer_classes.tsv`
 * SMILES files
 
 ---
 
-## 🔹  Cross-project modules (BiG-SCAPE and SNN)
+## 🔹 Cross-project modules (BiG-SCAPE and SSN)
 
-⚠️ Cross-project Analysis Disclaimer:
-All cross-project modules (e.g. BiG-SCAPE and SSN) are not included on the general workflow and must be run manually before analysing other projects.
-This modules automatically process all projects outputs located inside the data/ directory.
-This means that any folder within data/ containing valid outputs will be included in the analysis.
-🧹 How to exclude datasets: Move the project outside the data/ directory
+> ⚠️ **Cross-project Analysis Disclaimer:**  
+> These modules are **not part of the main workflow** and must be run manually after analyzing individual projects.  
+> They automatically include all projects found inside the `data/` directory.  
+> 🧹 **To exclude a dataset:** move its folder outside of `data/`.
+
+---
 
 ## 🔹 Module 6: Cross-project BiG-SCAPE
 
 **Script:** `06_bigscape_cross_project.sh`
 
 **Function:**
-
 * Aggregates BGCs across projects
 * Runs global clustering
 
@@ -262,9 +227,8 @@ This means that any folder within data/ containing valid outputs will be include
 **Script:** `07_ssn_cross_project.sh`
 
 **Function:**
-
+* Builds sequence similarity networks from predicted RiPP precursors
 * Filters peptides using:
-
   * DeepRiPP score
   * RiPPMiner classification
 * Runs all-vs-all BLAST
@@ -298,20 +262,18 @@ RUN_BIGSCAPE=false
 
 ## 🔹 2. Run individual modules
 
-Example:
-
 ```bash
 bash scripts/02_coassembly.sh
 bash scripts/04_deepripp.sh
 ```
 
-⚠️ Requires previous module outputs.
+> ⚠️ Requires outputs from previous modules.
 
 ---
 
 ## 🔹 3. Cross-project analysis
 
-### SSN:
+**SSN:**
 
 ```bash
 bash scripts/07_ssn_cross_project.sh \
@@ -319,7 +281,7 @@ bash scripts/07_ssn_cross_project.sh \
     --evalue 1e-5
 ```
 
-### BiG-SCAPE:
+**BiG-SCAPE:**
 
 ```bash
 bash scripts/06_bigscape_cross_project.sh
@@ -328,7 +290,6 @@ bash scripts/06_bigscape_cross_project.sh
 ---
 
 # 📁 Project Structure
-
 ```
 MetaRiPP/
 ├── scripts/
@@ -339,7 +300,6 @@ MetaRiPP/
 │   ├── <project_name>/
 │   └── cross_project/
 ```
-
 ---
 
 # 📌 Notes
@@ -353,22 +313,19 @@ MetaRiPP/
 # 🧠 Future Development
 
 * Docker / Conda reproducibility
-* SNN implementation
-* Visualization modules
+* SSN visualization modules
 * Automated reporting
 
 ---
 
 # 📄 License
 
-(To be defined)
+*(To be defined)*
 
 ---
 
 # 👨‍🔬 Author
 
-Pablo Villanueva Diaz
-
-Microbial Data Science Lab
-
+Pablo Villanueva Diaz  
+Microbial Data Science Lab  
 Universidad Andrés Bello
