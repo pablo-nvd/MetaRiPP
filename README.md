@@ -51,6 +51,37 @@ The pipeline is organized into modular steps:
 
 ---
 
+# 🧪 Installation (WIP)
+
+> ⚠️ Under development
+
+Will include:
+
+* Conda environment
+* Dependency versions
+* Optional Docker image
+
+---
+
+# 🚀 Usage
+
+## 🔹 1. Full workflow
+
+```bash
+bash workflow/run_pipeline.sh \
+    --project my_project \
+    --mode local \
+    --input input/
+```
+
+Modes:
+
+* `download` → GeoSeeq
+* `local` → local FASTQ
+
+---
+
+
 # 🧩 Modules
 
 ## 🔹 Module 1: Download / Local QC
@@ -189,36 +220,6 @@ Example:
 THREADS=8
 RUN_BIGSCAPE=false
 ```
-
----
-
-# 🧪 Installation (WIP)
-
-> ⚠️ Under development
-
-Will include:
-
-* Conda environment
-* Dependency versions
-* Optional Docker image
-
----
-
-# 🚀 Usage
-
-## 🔹 1. Full workflow
-
-```bash
-bash workflow/run_pipeline.sh \
-    --project my_project \
-    --mode local \
-    --input input/
-```
-
-Modes:
-
-* `download` → GeoSeeq
-* `local` → local FASTQ
 
 ---
 
