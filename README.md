@@ -137,11 +137,11 @@ local → use local folder with FASTQ files
 Each module must be executed within a project context using PROJECT_DIR.
 
 ### Module 1 — Input & QC
-### Download mode (GeoSeeq sample list)
+#### Download mode (GeoSeeq sample list)
 ```bash
 PROJECT_DIR=data/test_1 bash scripts/01_download_qc.sh input/example.txt
 ```
-### Local mode (directory with FASTQ files)
+#### Local mode (directory with FASTQ files)
 ```bash
 PROJECT_DIR=data/test_1 bash scripts/01_local_qc.sh input/
 ```
@@ -156,16 +156,15 @@ PROJECT_DIR=data/test_1 bash scripts/05_rippminer.sh
 
 ## 🔹 3. Cross-project modules
 
-These modules operate across all projects located in:
+These modules operate across all projects located in: data/
 
-data/
-SSN
+### SSN
 ```bash
 bash scripts/07_ssn_cross_project.sh \
     --deepripp_score 0.5 \
     --evalue 1e-5
 ```
-BiG-SCAPE
+### BiG-SCAPE
 ```bash
 bash scripts/06_bigscape_cross_project.sh
 ```
