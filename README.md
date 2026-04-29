@@ -61,7 +61,75 @@ Will include:
 * Dependency versions
 * Optional Docker image
 
+> ⚠️ Databases
+
+Some modules require precomputed databases. These paths are defined in `config/config.env`.
+
+### Required databases
+
+The pipeline uses:
+
+- **Bowtie2 indices**
+  - Human genome (GRCh38)
+  - PhiX control genome
+
+- **Pfam HMM profiles** (required by BiG-SCAPE)
+
 ---
+
+### 📥 Option 1 — Download prebuilt databases (recommended)
+
+Preconfigured databases will be available at:  
+*(Zenodo link — coming soon)*
+
+After downloading, extract them into the `dbs/` directory.
+
+Expected structure:
+
+MetaRiPP/
+├── bins/
+├── config/
+├── dbs/
+│ ├── bigscape/ # Pfam HMM profiles
+│ ├── index_h38/ # Bowtie2 human index
+│ └── index_phix/ # Bowtie2 PhiX index
+
+
+---
+
+### 🛠️ Option 2 — Build/download manually
+
+#### Bowtie2 indices
+
+You can build indices from FASTA files:
+
+```bash
+bowtie2-build human.fa index_h38/hg38
+bowtie2-build phix.fa index_phix/phix
+```
+
+#### Pfam database (for BiG-SCAPE)
+
+Download Pfam HMM profiles:
+
+```bash
+wget https://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.gz
+gunzip Pfam-A.hmm.gz
+```
+
+Download Pfam HMM profiles:
+dbs/bigscape/
+---
+
+If you generate or place databases manually, make sure to update the paths in:
+```bash
+config/config.env
+```
+```bash
+PHIX_INDEX="dbs/index_phix/phix"
+HG_INDEX="dbs/index_h38/hg38"
+PFAM_DIR="dbs/bigscape"
+```
 
 # 🚀 Usage
 
@@ -168,8 +236,12 @@ RUN_BIGSCAPE=false
 * SMILES files
 
 ---
-⚠️ Cross-project Analysis Disclaimer
-All cross-project modules (e.g. BiG-SCAPE and SSN) automatically process all projects located inside the data/ directory.
+
+## 🔹  Cross-project modules (BiG-SCAPE and SNN)
+
+⚠️ Cross-project Analysis Disclaimer:
+All cross-project modules (e.g. BiG-SCAPE and SSN) are not included on the general workflow and must be run manually before analysing other projects.
+This modules automatically process all projects outputs located inside the data/ directory.
 This means that any folder within data/ containing valid outputs will be included in the analysis.
 🧹 How to exclude datasets: Move the project outside the data/ directory
 
@@ -294,6 +366,8 @@ MetaRiPP/
 
 # 👨‍🔬 Author
 
-Pablo Villanueva
+Pablo Villanueva Diaz
+
 Microbial Data Science Lab
+
 Universidad Andrés Bello
