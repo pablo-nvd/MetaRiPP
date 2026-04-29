@@ -132,19 +132,19 @@ download → download data from GeoSeeq (requires sample list)
 
 local → use local folder with FASTQ files
 
-🔹 2. Run individual modules
+##🔹 2. Run individual modules
 Each module must be executed within a project context using PROJECT_DIR.
 
-Module 1 — Input & QC
-# Download mode (GeoSeeq sample list)
+###Module 1 — Input & QC
+### Download mode (GeoSeeq sample list)
 ```bash
 PROJECT_DIR=data/test_1 bash scripts/01_download_qc.sh input/example.txt
 ```
-# Local mode (directory with FASTQ files)
+### Local mode (directory with FASTQ files)
 ```bash
 PROJECT_DIR=data/test_1 bash scripts/01_local_qc.sh input/
 ```
-Modules 2–5 — Core pipeline
+### Modules 2–5 — Core pipeline
 ```bash
 PROJECT_DIR=data/test_1 bash scripts/02_coassembly.sh
 PROJECT_DIR=data/test_1 bash scripts/03_bgcs.sh
@@ -153,7 +153,7 @@ PROJECT_DIR=data/test_1 bash scripts/05_rippminer.sh
 ```
 ⚠️ Each module depends on outputs from the previous step.
 
-🔹 3. Cross-project modules
+##🔹 3. Cross-project modules
 
 These modules operate across all projects located in:
 
