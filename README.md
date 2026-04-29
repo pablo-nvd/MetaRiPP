@@ -126,7 +126,7 @@ bash workflow/run_pipeline.sh \
     --mode [local|download] \
     --input input/
 ```
-Modes
+### Modes:
 
 download → download data from GeoSeeq (requires sample list)
 
