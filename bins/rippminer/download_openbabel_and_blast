@@ -1,0 +1,6 @@
+mkdir downloads
+cd downloads
+wget --no-check-certificate https://sourceforge.net/projects/openbabel/files/openbabel/2.3.2/openbabel-2.3.2.tar.gz
+wget ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.6.0+-x64-linux.tar.gz
+echo "Open babel and Blast have been downloaded in 'downloads' directory"
+echo "Install them and provide the path of installation directory in 'path' file"

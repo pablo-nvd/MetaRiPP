@@ -1,0 +1,17 @@
+name: deepripp_env
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.7
+  - spacy=2.1
+  - biopython
+  - numpy
+  - pandas
+  - scipy
+  - scikit-learn
+  - matplotlib
+  - pip
+  - pip:
+      - git+https://github.com/nishanthmerwin/fastai.git@deepripp_install
+      - git+https://github.com/magarveylab/nlpprecursor

@@ -1,0 +1,12 @@
+mkdir downloads
+cd downloads
+wget --no-check-certificate https://sourceforge.net/projects/weka/files/weka-3-6/3.6.14/weka-3-6-14.zip
+wget http://download.joachims.org/svm_light/current/svm_light_linux32.tar.gz
+wget http://download.joachims.org/svm_multiclass/current/svm_multiclass_linux32.tar.gz
+cd ../scripts/
+unzip ../downloads/weka-3-6-14.zip
+tar xvf ../downloads/svm_light_linux32.tar.gz
+tar xvf ../downloads/svm_multiclass_linux32.tar.gz
+echo "SVM and Weka has been successfully installed"
+echo "You may now run another script 'download_openbabel_and_blast'"
+echo "for downloading Openbabel and Blast and can install it accordingly!"

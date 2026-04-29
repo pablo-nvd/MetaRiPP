@@ -1,0 +1,20 @@
+
+#INPUT	1	GE2270 A Thiopeptide
+
+RiPP Class:	Thiopeptide
+
+Input Sequence:	SCNCVCGFCCSCSP
+Predicted Crosslink:	1 -- 11
+Predicted Modified Residues:	2, Thiazole(Cys); 4, Thiazole(Cys); 6, Thiazole(Cys); 9, Thiazole(Cys); 10, Thiazole(Cys); 12, Thiazole(Cys);
+SMILES:
+c3(s1)nc(c1)C(=O)NC(CC(=O)N)c(s1)nc(c1)C(=O)NC(C(C)C)c(s1)nc(c1)C(=O)NCC(=O)NC(C(C1=CC=C(C=C1)))c(s1)nc(c1)c(s1)nc(c1)c(c3c1)nc(c1)c(s1)nc(c1)C(=O)NC(CO)C(=O)N(CCC1)C1C(=O)O
+
+#INPUT	2	Thiopeptin A1a Thiopeptide
+
+RiPP Class:	Thiopeptide
+
+Input Sequence:	VASASCTTCICTCSCSS
+Predicted Crosslink:	5 -- 14
+Predicted Modified Residues:	6, Thiazole(Cys); 9, Thiazole(Cys); 11, Thiazole(Cys); 13, Thiazole(Cys); 15, Thiazole(Cys);
+SMILES:
+c3(s1)nc(c1)C(=O)NC(C(C)O)C(=O)NC(C(C)O)c(s1)nc(c1)C(=O)NC(C(C)CC)c(s1)nc(c1)C(=O)NC(C(C)O)c(s1)nc(c1)C(C3(NC(=O)C(C)NC(=O)C(CO)NC(=O)C(C)NC(=O)C(C(C)C)N)C1)NC(C1)c(s1)nc(c1)C(=O)NC(CO)C(=O)NC(CO)C(=O)O

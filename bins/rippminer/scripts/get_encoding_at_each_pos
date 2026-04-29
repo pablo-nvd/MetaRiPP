@@ -1,0 +1,34 @@
+#!/home/priyesh/prl/opt/ActivePerl-5.18/bin/perl
+use warnings;
+($file)=@ARGV;#formatted_encode1_Kinase_Substrate_Dataset_human_11942_with_pfam or Kinase_NB_encode1_11942_with_pfam
+$aa="ACDEFGHIKLMNPQRSTVWY";
+@freq=();
+@freq=split(//,$aa);$k=@freq;
+open (FL,"$file");
+@input=<FL>;
+foreach $input(@input)
+{
+ chomp $input;
+ #print "$input\t";
+ @inp=();
+ @inp=split(/\t/,$input);
+ print "$inp[1] ";
+ @freq1=();
+ @freq1=split(//,$inp[0]);$s=@freq1;
+ $k=1;
+ for $c(0..($s-1))
+ {
+  chomp $freq1[$c];#print "$freq1[$c]:\n";
+  foreach $freq(@freq)
+  {
+   #print "$freq";
+   if ($freq1[$c] =~/$freq/)
+   {
+    print "$k:1 ";
+   }
+   else {print "$k:0 ";}
+   $k++;
+  }
+ }
+ print " $inp[2]\n";
+}

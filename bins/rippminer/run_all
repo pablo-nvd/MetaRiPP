@@ -1,0 +1,8 @@
+echo "Clearing Old Result files"
+/bin/rm -rf TMP prediction.out sequence_similarity.out all_alignment all_smiles.out structure_search.out
+echo Running RiPPMiner
+perl run_rippminer.pl -i input_protein_fasta_file
+echo Running Sequence Similarity Search
+perl sequence_similarity_search.pl -i input_protein_fasta_file
+echo  Running Closest Structure Search
+perl closest_structure_search.pl -i input_smiles

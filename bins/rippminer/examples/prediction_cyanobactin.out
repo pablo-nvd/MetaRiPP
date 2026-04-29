@@ -1,0 +1,50 @@
+
+#INPUT	1	Ulithiacyclamide Cyanobactin
+
+Predicted RiPP Class:	Cyanobactin
+
+CORE 1
+Sequence:	MNKKNILPQQGQPVIRLTAGQLSSQLAELSEEALGDAGLEASVAACITFCAYDGVEPSCTLCCTLCAYDGE
+Core Peptide	CTLCCTLC
+Core Position:	59-66
+Modified Residues	1,thiazol(in)e(Cys)	2,methyloxazol(in)e(Thr)	4,thiazol(in)e(Cys)	5,thiazol(in)e(Cys)	6,methyloxazol(in)e(Thr)	8,thiazol(in)e(Cys)
+Predicted Crosslinks:	1,8,peptide_bond(Cys-Cys)
+SMILES:
+N3C(CS)C(O1)=NC(C1(C))C(=O)NC(CC(C)C)C(S1)=NC(C1)C(S1)=NC(C1)C(O1)=NC(C1(C))C(=O)NC(CC(C)C)C(S1)=NC(C1)C3(=O)
+CORE 2
+Sequence:	MNKKNILPQQGQPVIRLTAGQLSSQLAELSEEALGDAGLEASVAACITFCAYDGVEPSCTLCCTLCAYDGE
+Core Peptide	VAACITFC
+Core Position:	43-50
+Modified Residues	4,thiazol(in)e(Cys)	6,methyloxazol(in)e(Thr)	8,thiazol(in)e(Cys)
+Predicted Crosslinks:	1,8,peptide_bond(Val-Cys)
+SMILES:
+N3C(C(C)C)C(=O)NC(C)C(=O)NC(C)C(S1)=NC(C1)C(=O)NC(C(C)CC)C(O1)=NC(C1(C))C(=O)NC(C(C1=CC=C(C=C1)))C(S1)=NC(C1)C3(=O)
+
+#INPUT	2	Trunkamide Cyanobactin
+
+Predicted RiPP Class:	Cyanobactin
+
+CORE 1
+Sequence:	MNKKNILPQLGQPVIRLTAGQLSSQLAELSEEALGGVDASTSIAPFCSYDGVDASTSIAPFCSYDGVDASTSIAPFCSYDD
+Core Peptide	TSIAPFC
+Core Position:	56-62
+Modified Residues	1,methyloxazol(in)e(Thr)	2,oxazol(in)e(Ser)	7,thiazol(in)e(Cys)
+Predicted Crosslinks:	1,7,peptide_bond(Thr-Cys)
+SMILES:
+N3C(C(C)O)C(O1)=NC(C1)C(=O)NC(C(C)CC)C(=O)NC(C)C(=O)N(CCC1)C1C(=O)NC(C(C1=CC=C(C=C1)))C(S1)=NC(C1)C3(=O)
+CORE 2
+Sequence:	MNKKNILPQLGQPVIRLTAGQLSSQLAELSEEALGGVDASTSIAPFCSYDGVDASTSIAPFCSYDGVDASTSIAPFCSYDD
+Core Peptide	TSIAPFC
+Core Position:	41-47
+Modified Residues	1,methyloxazol(in)e(Thr)	2,oxazol(in)e(Ser)	7,thiazol(in)e(Cys)
+Predicted Crosslinks:	1,7,peptide_bond(Thr-Cys)
+SMILES:
+N3C(C(C)O)C(O1)=NC(C1)C(=O)NC(C(C)CC)C(=O)NC(C)C(=O)N(CCC1)C1C(=O)NC(C(C1=CC=C(C=C1)))C(S1)=NC(C1)C3(=O)
+CORE 3
+Sequence:	MNKKNILPQLGQPVIRLTAGQLSSQLAELSEEALGGVDASTSIAPFCSYDGVDASTSIAPFCSYDGVDASTSIAPFCSYDD
+Core Peptide	TSIAPFC
+Core Position:	71-77
+Modified Residues	1,methyloxazol(in)e(Thr)	2,oxazol(in)e(Ser)	7,thiazol(in)e(Cys)
+Predicted Crosslinks:	1,7,peptide_bond(Thr-Cys)
+SMILES:
+N3C(C(C)O)C(O1)=NC(C1)C(=O)NC(C(C)CC)C(=O)NC(C)C(=O)N(CCC1)C1C(=O)NC(C(C1=CC=C(C=C1)))C(S1)=NC(C1)C3(=O)

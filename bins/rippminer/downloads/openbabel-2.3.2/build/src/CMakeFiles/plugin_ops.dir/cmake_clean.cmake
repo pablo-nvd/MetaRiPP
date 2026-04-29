@@ -1,0 +1,43 @@
+file(REMOVE_RECURSE
+  "../lib/plugin_ops.pdb"
+  "../lib/plugin_ops.so"
+  "CMakeFiles/plugin_ops.dir/ops/addfilename.o"
+  "CMakeFiles/plugin_ops.dir/ops/addfilename.o.d"
+  "CMakeFiles/plugin_ops.dir/ops/addinindex.o"
+  "CMakeFiles/plugin_ops.dir/ops/addinindex.o.d"
+  "CMakeFiles/plugin_ops.dir/ops/addpolarh.o"
+  "CMakeFiles/plugin_ops.dir/ops/addpolarh.o.d"
+  "CMakeFiles/plugin_ops.dir/ops/canonical.o"
+  "CMakeFiles/plugin_ops.dir/ops/canonical.o.d"
+  "CMakeFiles/plugin_ops.dir/ops/fillUC.o"
+  "CMakeFiles/plugin_ops.dir/ops/fillUC.o.d"
+  "CMakeFiles/plugin_ops.dir/ops/forcefield.o"
+  "CMakeFiles/plugin_ops.dir/ops/forcefield.o.d"
+  "CMakeFiles/plugin_ops.dir/ops/gen2D.o"
+  "CMakeFiles/plugin_ops.dir/ops/gen2D.o.d"
+  "CMakeFiles/plugin_ops.dir/ops/gen3d.o"
+  "CMakeFiles/plugin_ops.dir/ops/gen3d.o.d"
+  "CMakeFiles/plugin_ops.dir/ops/largest.o"
+  "CMakeFiles/plugin_ops.dir/ops/largest.o.d"
+  "CMakeFiles/plugin_ops.dir/ops/loader.o"
+  "CMakeFiles/plugin_ops.dir/ops/loader.o.d"
+  "CMakeFiles/plugin_ops.dir/ops/ophighlight.o"
+  "CMakeFiles/plugin_ops.dir/ops/ophighlight.o.d"
+  "CMakeFiles/plugin_ops.dir/ops/opisomorph.o"
+  "CMakeFiles/plugin_ops.dir/ops/opisomorph.o.d"
+  "CMakeFiles/plugin_ops.dir/ops/optransform.o"
+  "CMakeFiles/plugin_ops.dir/ops/optransform.o.d"
+  "CMakeFiles/plugin_ops.dir/ops/partialcharges.o"
+  "CMakeFiles/plugin_ops.dir/ops/partialcharges.o.d"
+  "CMakeFiles/plugin_ops.dir/ops/readconformers.o"
+  "CMakeFiles/plugin_ops.dir/ops/readconformers.o.d"
+  "CMakeFiles/plugin_ops.dir/ops/sort.o"
+  "CMakeFiles/plugin_ops.dir/ops/sort.o.d"
+  "CMakeFiles/plugin_ops.dir/ops/xout.o"
+  "CMakeFiles/plugin_ops.dir/ops/xout.o.d"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/plugin_ops.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()
