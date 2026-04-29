@@ -86,6 +86,7 @@ After downloading, extract them into the `dbs/` directory.
 
 Expected structure:
 
+```bash
 MetaRiPP/
 ├── bins/
 ├── config/
@@ -93,7 +94,7 @@ MetaRiPP/
 │ ├── bigscape/ # Pfam HMM profiles
 │ ├── index_h38/ # Bowtie2 human index
 │ └── index_phix/ # Bowtie2 PhiX index
-
+```
 
 ---
 
