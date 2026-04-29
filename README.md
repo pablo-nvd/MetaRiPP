@@ -159,17 +159,19 @@ PROJECT_DIR=data/test_1 bash scripts/05_rippminer.sh
 
 These modules operate across all projects located in: data/
 
+⚠️ All valid projects inside data/ will be included automatically.
+
+### BiG-SCAPE
+```bash
+bash scripts/06_bigscape_cross_project.sh
+```
+
 ### SSN
 ```bash
 bash scripts/07_ssn_cross_project.sh \
     --deepripp_score 0.5 \
     --evalue 1e-5
 ```
-### BiG-SCAPE
-```bash
-bash scripts/06_bigscape_cross_project.sh
-```
-⚠️ All valid projects inside data/ will be included automatically.
 
 ---
 
