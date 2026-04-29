@@ -123,12 +123,13 @@ PFAM_DIR="dbs/bigscape"
 ```bash
 bash workflow/run_pipeline.sh \
     --project my_project \
-    --mode local \
+    --mode [local|download] \
     --input input/
 ```
 Modes
+
 download → download data from GeoSeeq (requires sample list)
-local → use local FASTQ files
+local → use local folder with FASTQ files
 
 🔹 2. Run individual modules
 Each module must be executed within a project context using PROJECT_DIR.
