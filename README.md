@@ -1,7 +1,7 @@
 # 🧬 MetaRiPP
 
                                
-<img width="400" height="200" alt="logo" src="https://github.com/user-attachments/assets/3ee2b4b3-8a19-4a7a-be01-9a9949651639" />
+<img width="500" height="200" alt="logo" src="https://github.com/user-attachments/assets/3ee2b4b3-8a19-4a7a-be01-9a9949651639" />
                                                                                                                                 
         Metagenomic RiPP Discovery & Network Analysis Pipeline
 
