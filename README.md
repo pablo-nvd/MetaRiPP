@@ -28,6 +28,7 @@ The pipeline is organized into modular steps:
 
 The following tools must be installed and available in your `$PATH`:
 
+- `geoseeq`
 - `fastp`
 - `bowtie2`
 - `MEGAHIT`
