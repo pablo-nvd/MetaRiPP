@@ -1,10 +1,10 @@
 # 🧬 MetaRiPP
 
-```                                   
+                               
 <img width="897" height="544" alt="logo" src="https://github.com/user-attachments/assets/3ee2b4b3-8a19-4a7a-be01-9a9949651639" />
                                                                                                                                 
         Metagenomic RiPP Discovery & Network Analysis Pipeline
-```
+
 
 **MetaRiPP** is a modular pipeline for the detection, classification, and cross-project analysis of **ribosomally synthesized and post-translationally modified peptides (RiPPs)** from metagenomic data.
 
