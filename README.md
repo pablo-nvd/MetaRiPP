@@ -116,7 +116,7 @@ HG_INDEX="dbs/index_h38/hg38"
 PFAM_DIR="dbs/bigscape"
 ```
 
-# 🚀 Usage
+# 🚀 Pipeline Usage
 
 ## 🔹 1. Full workflow
 
@@ -129,6 +129,7 @@ bash workflow/run_pipeline.sh \
 Modes
 
 download → download data from GeoSeeq (requires sample list)
+
 local → use local folder with FASTQ files
 
 🔹 2. Run individual modules
